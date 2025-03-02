@@ -1,0 +1,13 @@
+{
+  "name": "remote2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}

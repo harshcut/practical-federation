@@ -6,11 +6,11 @@ module.exports = {
   entry: './src/index.js',
   mode: 'development',
   devServer: {
-    port: 3000,
+    port: 3002,
     historyApiFallback: true,
   },
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://localhost:3002/',
   },
   module: {
     rules: [
@@ -28,11 +28,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'shell',
-      filename: 'shell.remoteEntry.js',
-      remotes: {
-        remote1: 'remote1@http://localhost:3001/remote1.remoteEntry.js',
-        remote2: 'remote2@http://localhost:3002/remote2.remoteEntry.js',
+      name: 'remote2',
+      filename: 'remote2.remoteEntry.js',
+      exposes: {
+        './App': './src/App',
       },
       shared: {
         react: { singleton: true, requiredVersion: deps['react'] },
